@@ -16,24 +16,37 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
 
+import com.github.javiersantos.appupdater.AppUpdater;
+import com.github.javiersantos.appupdater.enums.Display;
+import com.github.javiersantos.appupdater.enums.UpdateFrom;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
+    @Override
+    protected void onStart() {
+        super.onStart();
+        AppUpdater appUpdater = new AppUpdater(MainActivity.this)
+                .setDisplay(Display.DIALOG)
+                .setCancelable(false)
+                .setUpdateFrom(UpdateFrom.GITHUB)
+                .setGitHubUserAndRepo("sandeep03edu", "Notepad") ;
+
+        appUpdater.start();
+    }
 
     public static final int ADD_NOTE_REQUEST = 1;
     public static final int EDIT_NOTE_REQUEST = 2;
     private NoteViewModel noteViewModel;
     private View emptyView;
-//    private RecyclerView recyclerView;
     private EmptyRecyclerView recyclerView;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        setTitle("Notes");
+        setTitle("Notepad");
 
         FloatingActionButton buttonAddNote = findViewById(R.id.button_add_note);
         buttonAddNote.setOnClickListener(new View.OnClickListener() {
@@ -43,6 +56,7 @@ public class MainActivity extends AppCompatActivity {
                 startActivityForResult(intent, ADD_NOTE_REQUEST);
             }
         });
+
         emptyView = findViewById(R.id.empty_view);
 
         recyclerView = findViewById(R.id.recycler_view);

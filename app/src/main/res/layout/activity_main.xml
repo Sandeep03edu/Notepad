@@ -26,7 +26,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
-        android:visibility="invisible">
+        android:visibility="visible">
 
         <ImageView
             android:id="@+id/empty_shelter_image"
@@ -61,14 +61,14 @@
 
 
     <!--        <android.support.design.widget.FloatingActionButton-->
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/button_add_note"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentRight="true"
-        android:layout_margin="32dp"
-        android:src="@drawable/ic_add" />
-<!--        android:layout_gravity="bottom|end"-->
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/button_add_note"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentRight="true"
+            android:layout_margin="32dp"
+            android:src="@drawable/ic_add" />
+    <!--        android:layout_gravity="bottom|end"-->
 
 </RelativeLayout>

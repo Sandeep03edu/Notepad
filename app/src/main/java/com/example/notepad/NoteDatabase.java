@@ -7,9 +7,6 @@ import androidx.room.Room;
 import androidx.room.RoomDatabase;
 import androidx.sqlite.db.SupportSQLiteDatabase;
 
-// entities can have multiple clasees so we can put it as array { , }
-// else can be used to take one class entities = {Note.class}, version = 1
-
 @Database(entities = {Note.class}, version = 1)
 public abstract class NoteDatabase extends RoomDatabase {
     private static NoteDatabase instance;
