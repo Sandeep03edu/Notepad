@@ -24,17 +24,6 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
-    @Override
-    protected void onStart() {
-        super.onStart();
-        AppUpdater appUpdater = new AppUpdater(MainActivity.this)
-                .setDisplay(Display.DIALOG)
-                .setCancelable(false)
-                .setUpdateFrom(UpdateFrom.GITHUB)
-                .setGitHubUserAndRepo("sandeep03edu", "Notepad") ;
-
-        appUpdater.start();
-    }
 
     public static final int ADD_NOTE_REQUEST = 1;
     public static final int EDIT_NOTE_REQUEST = 2;
@@ -46,14 +35,39 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        setTitle("Notepad");
+        setTitle("Note");
 
         FloatingActionButton buttonAddNote = findViewById(R.id.button_add_note);
         buttonAddNote.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, AddEditNoteActivity.class);
-                startActivityForResult(intent, ADD_NOTE_REQUEST);
+//                Intent intent = new Intent(MainActivity.this, AddEditNoteActivity.class);
+//                startActivityForResult(intent, ADD_NOTE_REQUEST);
+
+//                AppUpdater appUpdater = new AppUpdater(MainActivity.this)
+//                        .setTitleOnUpdateAvailable("Update available")
+//                        .setContentOnUpdateAvailable("Check out the latest version available of my app!")
+//                        .setTitleOnUpdateNotAvailable("Update not available")
+//                        .setContentOnUpdateNotAvailable("No update available. Check for updates again later!")
+//                        .setButtonUpdate("Update now?")
+//                        .setButtonDismiss("Maybe later")
+//                        .setButtonDoNotShowAgain("Huh, not interested")
+//                        .setIcon(R.mipmap.icon_launcher) // Notification icon
+//                        .setDisplay(Display.DIALOG)
+//                        .setCancelable(false)
+//                        .setUpdateFrom(UpdateFrom.GITHUB)
+//                        .setGitHubUserAndRepo("Sandeep03edu", "Notepad") ;
+//
+//                appUpdater.start();
+
+                new AppUpdater(MainActivity.this)
+                        //.setUpdateFrom(UpdateFrom.GITHUB)
+                        //.setGitHubUserAndRepo("javiersantos", "AppUpdater")
+                        .setUpdateFrom(UpdateFrom.XML)
+                        .setUpdateXML("https://raw.githubusercontent.com/javiersantos/AppUpdater/master/app/update.xml")
+                        .setDisplay(Display.SNACKBAR)
+                        .showAppUpdated(true)
+                        .start();
             }
         });
 
