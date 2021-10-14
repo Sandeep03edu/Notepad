@@ -44,30 +44,30 @@ public class MainActivity extends AppCompatActivity {
 //                Intent intent = new Intent(MainActivity.this, AddEditNoteActivity.class);
 //                startActivityForResult(intent, ADD_NOTE_REQUEST);
 
-//                AppUpdater appUpdater = new AppUpdater(MainActivity.this)
-//                        .setTitleOnUpdateAvailable("Update available")
-//                        .setContentOnUpdateAvailable("Check out the latest version available of my app!")
-//                        .setTitleOnUpdateNotAvailable("Update not available")
-//                        .setContentOnUpdateNotAvailable("No update available. Check for updates again later!")
-//                        .setButtonUpdate("Update now?")
-//                        .setButtonDismiss("Maybe later")
-//                        .setButtonDoNotShowAgain("Huh, not interested")
-//                        .setIcon(R.mipmap.icon_launcher) // Notification icon
-//                        .setDisplay(Display.DIALOG)
-//                        .setCancelable(false)
-//                        .setUpdateFrom(UpdateFrom.GITHUB)
-//                        .setGitHubUserAndRepo("Sandeep03edu", "Notepad") ;
-//
-//                appUpdater.start();
+                AppUpdater appUpdater = new AppUpdater(MainActivity.this)
+                        .setTitleOnUpdateAvailable("Update available")
+                        .setContentOnUpdateAvailable("Check out the latest version available of my app!")
+                        .setTitleOnUpdateNotAvailable("Update not available")
+                        .setContentOnUpdateNotAvailable("No update available. Check for updates again later!")
+                        .setButtonUpdate("Update now?")
+                        .setButtonDismiss("Maybe later")
+                        .setButtonDoNotShowAgain("Huh, not interested")
+                        .setIcon(R.mipmap.icon_launcher) // Notification icon
+                        .setDisplay(Display.DIALOG)
+                        .setCancelable(false)
+                        .setUpdateFrom(UpdateFrom.GITHUB)
+                        .setGitHubUserAndRepo("Sandeep03edu", "Notepad") ;
 
-                new AppUpdater(MainActivity.this)
-                        //.setUpdateFrom(UpdateFrom.GITHUB)
-                        //.setGitHubUserAndRepo("javiersantos", "AppUpdater")
-                        .setUpdateFrom(UpdateFrom.XML)
-                        .setUpdateXML("https://raw.githubusercontent.com/javiersantos/AppUpdater/master/app/update.xml")
-                        .setDisplay(Display.SNACKBAR)
-                        .showAppUpdated(true)
-                        .start();
+                appUpdater.start();
+
+//                new AppUpdater(MainActivity.this)
+//                        //.setUpdateFrom(UpdateFrom.GITHUB)
+//                        //.setGitHubUserAndRepo("javiersantos", "AppUpdater")
+//                        .setUpdateFrom(UpdateFrom.XML)
+//                        .setUpdateXML("https://raw.githubusercontent.com/javiersantos/AppUpdater/master/app/update.xml")
+//                        .setDisplay(Display.SNACKBAR)
+//                        .showAppUpdated(true)
+//                        .start();
             }
         });
 
